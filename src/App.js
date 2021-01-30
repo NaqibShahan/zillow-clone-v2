@@ -1,23 +1,45 @@
-import logo from './logo.svg';
+import React, {useState, useEffect } from 'react';
 import './App.css';
+import Post from './Post';
+import {db}
 
 function App() {
+  const [posts, setPosts] = useState([
+  { 
+      username:"naqibshahan",
+      caption:"Wow it work!",
+      imageUrl:"https://www.freecodecamp.org/news/content/images/2020/02/Ekran-Resmi-2019-11-18-18.08.13.png"
+    },
+    { 
+      username:"amanda",
+      caption:"Wow it work!",
+      imageUrl:"https://www.freecodecamp.org/news/content/images/2020/02/Ekran-Resmi-2019-11-18-18.08.13.png"
+    }
+  ]);
+
+  useEffect (() => {
+
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="app_header">
+          <img
+            className="app_headerImage"
+            src="https://logos-world.net/wp-content/uploads/2020/04/Instagram-Logo.png"
+            alt=""></img>
+      </div>
+     <h1>Hello Clever Programmers</h1>
+
+      {
+        posts.map(post => (
+          <Post username={post.usename} caption={post.caption} imageUrl={post.imageUrl}></Post>
+        ))
+      }
+    
+     
+     {/* Posts */}
+  
     </div>
   );
 }
